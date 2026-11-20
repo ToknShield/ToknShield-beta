@@ -1,9 +1,9 @@
 # Installing the ToknShield beta
 
-ToknShield beta 0.23.22: the Mac app plus the Chrome extension (version 0.29.14.49). Setup takes about five minutes.
+ToknShield beta 0.23.22: the Mac app plus the Chrome extension (version 0.29.14.50). Setup takes about five minutes.
 
 You'll need a Mac with Google Chrome, an administrator password for the Mac, and ChatGPT set to English.
-While you're trying the beta, please use made-up or non-sensitive details.
+When you attach a supported file through ToknShield, the original stays on your Mac and ChatGPT receives only the protected copy. For this beta, use made-up or non-sensitive files, and don't select private files from Drive or ChatGPT Library.
 
 Questions or problems: **[tom@capinora.com](mailto:tom@capinora.com)**
 
@@ -12,7 +12,7 @@ Questions or problems: **[tom@capinora.com](mailto:tom@capinora.com)**
 From the [release page](https://github.com/ToknShield/ToknShield-beta/releases/tag/v0.23.22-beta), download both files:
 
 - `ToknShield-0.23.22-beta.pkg`: the Mac app
-- `ToknShield-Chrome-Extension-0.29.14.49.zip`: the Chrome extension
+- `ToknShield-Chrome-Extension-0.29.14.50.zip`: the Chrome extension
 
 Double-click the zip to unzip it. Move the **ToknShield Chrome Extension** folder somewhere permanent, such as your Documents folder.
 Chrome runs the extension from this folder, so if you delete or move it later, the extension stops working.
@@ -80,6 +80,16 @@ The original details are shown in ToknShield's own window, on your Mac only.
   ToknShield stops the message being sent, but it can't stop that fetch, so avoid picking private files from there.
 - **In a small Chrome window,** scroll inside the ToknShield panel to find the PDF review and the Attach button.
 
+## Updating the extension
+
+If you installed an earlier beta extension, you don't need to reinstall the Mac app.
+
+1. Download `ToknShield-Chrome-Extension-0.29.14.50.zip` from the release page and unzip it.
+2. Replace your existing **ToknShield Chrome Extension** folder with the new one, in the same place.
+3. In Chrome, go to `chrome://extensions` and click the reload arrow on ToknShield. It should now say version 0.29.14.50.
+
+The Mac app's menu may still show "Extension 0.29.14.49". That label is fixed in the installer, and the two work together.
+
 ## Removing ToknShield
 
 1. Quit Chrome, then quit ToknShield from the shield in the menu bar.
@@ -102,5 +112,5 @@ If you install an older version over a newer one, macOS reports success but keep
 To confirm the files are exactly what we published, run this in Terminal and compare the results with `SHA256SUMS` on the release page:
 
 ```
-shasum -a 256 ~/Downloads/ToknShield-0.23.22-beta.pkg ~/Downloads/ToknShield-Chrome-Extension-0.29.14.49.zip
+shasum -a 256 ~/Downloads/ToknShield-0.23.22-beta.pkg ~/Downloads/ToknShield-Chrome-Extension-0.29.14.50.zip
 ```

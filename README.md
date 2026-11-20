@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="ToknShield: Ship AI you can trust. Private details are replaced on your Mac before anything reaches ChatGPT." width="100%">
+  <img src="assets/banner.png" alt="ToknShield: Ship AI you can trust. Private details are protected on your Mac before your messages and files are sent to ChatGPT." width="100%">
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 Thanks for joining the ToknShield beta.
 
-ToknShield lets you use ChatGPT without handing over private details. It runs on your Mac. Before a message or document is sent, ToknShield replaces names, email addresses, phone numbers, addresses and account details with safe placeholders. The originals never leave your Mac, and ChatGPT's reply can be restored with the real details, only on your Mac.
+ToknShield lets you use ChatGPT without handing over private details. It runs on your Mac. Before a message or document is sent, ToknShield replaces names, email addresses, phone numbers, addresses and account details with safe placeholders. When you attach a supported file through ToknShield, the original stays on your Mac and ChatGPT receives only the protected copy. ChatGPT's reply can be restored with the real details, only on your Mac.
 
 ## See it in action
 
@@ -32,8 +32,8 @@ ToknShield lets you use ChatGPT without handing over private details. It runs on
 ### Your privacy
 
 - **Everything happens on your Mac.** No servers, no accounts, no analytics.
-- **ChatGPT only receives the protected version.** It never gets the original text or document you protected.
-- **Your originals stay with you.** Nobody else can see them, us included.
+- **ChatGPT receives only the protected copy.** When you attach a supported file through ToknShield, the original stays on your Mac and ChatGPT receives only the protected copy.
+- **Keep private files out of Drive and Library picks.** For this beta, use made-up or non-sensitive files, and don't select private files from Drive or ChatGPT Library. ChatGPT fetches those itself, so ToknShield can't protect them.
 - **Only on chatgpt.com.** The extension can't read other websites.
 - **When in doubt, it blocks.** If ToknShield can't confirm something is protected, it stops the send. It never falls back to the original.
 
