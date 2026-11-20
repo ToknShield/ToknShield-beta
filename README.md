@@ -62,4 +62,8 @@ Please use made-up or non-sensitive details while you try it out.
 
 Email **[tom@capinora.com](mailto:tom@capinora.com)** with anything: bugs, confusing moments, ideas. A screenshot and a sentence about what you were doing helps a lot. Please don't include real personal or client information.
 
-<sub>ToknShield is made by Portfolioapp Pty Ltd · <a href="https://toknshield.com">toknshield.com</a></sub>
+## Policies
+
+[Privacy Policy](PRIVACY.md) · [Terms of Use](TERMS.md) · [Security and Data Handling](SECURITY.md) · [Acceptable Use and Responsible Disclosure](ACCEPTABLE-USE.md)
+
+<sub>ToknShield is made by Portfolioapp Pty Ltd (ABN 74 688 794 247) · <a href="https://toknshield.com">toknshield.com</a></sub>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ToknShield Security and Data Handling</title>
+<meta name="description" content="ToknShield Security and Data Handling, from Portfolioapp Pty Ltd.">
+<meta property="og:title" content="ToknShield Beta: Ship AI you can trust">
+<meta property="og:description" content="Private details are protected on your Mac before your messages and files are sent to ChatGPT.">
+<meta property="og:image" content="https://beta.toknshield.com/assets/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{--navy:#0a1a33;--blue:#1f5bff;--fold:#143e9c;--frost:#f4f7fb;--muted:#435775;--rule:#cbd7e7;--wash:#e8efff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--frost);color:var(--navy);font:16px/1.6 Inter,system-ui,sans-serif}
+a{color:var(--blue)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--rule)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+header img{height:30px;display:block}
+header nav a{color:var(--muted);text-decoration:none;font-weight:500;margin-left:24px;font-size:15px}
+header nav a:hover{color:var(--navy)}
+h1,h2,h3{font-family:'Space Grotesk',system-ui,sans-serif;letter-spacing:-.02em;margin:0}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:72px 24px 64px}
+.tag{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--wash);color:var(--fold);font-weight:600;font-size:13px;margin-bottom:20px}
+h1{font-size:clamp(44px,6vw,68px);line-height:1.02;letter-spacing:-.04em}
+h1 em{font-style:normal;color:var(--blue)}
+.lede{font-size:19px;color:var(--muted);margin:22px 0 30px;max-width:520px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:10px;font-weight:600;text-decoration:none;font-size:15px}
+.btn.primary{background:var(--blue);color:#fff;box-shadow:0 6px 18px rgba(31,91,255,.28)}
+.btn.primary:hover{background:#174ae0}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--rule)}
+.btn.ghost:hover{border-color:var(--navy)}
+.fine{font-size:13px;color:var(--muted);margin-top:14px}
+.cards{display:grid;gap:14px}
+.card{background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(10,26,51,.06)}
+.card.w{background:var(--wash);border-color:#b9cdfa}
+.card h3{display:flex;justify-content:space-between;align-items:baseline;padding:11px 16px;border-bottom:1px solid var(--rule);font-size:18px}
+.card h3 small{font:400 12px Inter,sans-serif;color:var(--muted)}
+.card pre{margin:0;padding:12px 16px;font:13px/1.75 'JetBrains Mono',monospace;white-space:pre-wrap;word-break:break-all}
+.t{color:var(--blue);background:#d4e1ff;border-radius:3px;padding:0 2px}
+section{padding:56px 0;border-top:1px solid var(--rule)}
+section>.wrap>h2{font-size:34px;margin-bottom:8px}
+section>.wrap>p.sub{color:var(--muted);margin:0 0 32px;font-size:17px}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+figure{margin:0}
+figure img{width:100%;display:block;border-radius:12px}
+figcaption{margin-top:10px;color:var(--muted);font-size:15px}
+figcaption b{color:var(--navy)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tile{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:22px}
+.tile h3{font-size:19px;margin-bottom:6px}
+.tile p{margin:0;color:var(--muted);font-size:15px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+ol.steps li{counter-increment:s;background:#fff;border:1px solid var(--rule);border-radius:12px;padding:22px}
+ol.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font:700 15px 'Space Grotesk';margin-bottom:12px}
+ol.steps b{display:block;font-family:'Space Grotesk';font-size:18px;margin-bottom:4px}
+ol.steps span{color:var(--muted);font-size:15px}
+.dl{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid var(--rule);border-radius:12px;padding:18px 20px;text-decoration:none;color:var(--navy)}
+.dl a:hover{border-color:var(--blue)}
+.dl b{font-family:'Space Grotesk';font-size:18px;display:block}
+.dl small{color:var(--muted)}
+.dl .arrow{font-size:22px;color:var(--blue)}
+footer{border-top:1px solid var(--rule);padding:28px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer .legal a{color:var(--muted);text-decoration:none}
+footer .legal a:hover{color:var(--navy)}
+footer .legal{display:flex;flex-wrap:wrap;gap:6px 18px}footer .legal a{margin:0}
+@media (max-width:820px){
+ .hero{grid-template-columns:1fr;gap:36px;padding:44px 24px}
+ .shots,.grid3,ol.steps,.dl{grid-template-columns:1fr}
+ header nav{display:flex;gap:20px}
+ header nav a{display:inline-flex;align-items:center;min-height:44px;margin-left:0;white-space:nowrap}
+ section>.wrap>h2{font-size:28px}
+}
+@media (max-width:580px){
+ header .wrap{flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;height:auto;padding-top:14px;padding-bottom:6px}
+ header nav{width:100%;justify-content:space-between;gap:12px}
+}
+</style>
+<style>
+.doc{max-width:760px;margin:0 auto;padding:48px 24px 72px}
+.doc h1{font-size:clamp(32px,5vw,44px);line-height:1.08;letter-spacing:-.03em;margin-bottom:10px}
+.doc h1+p{color:var(--muted);font-size:15px;margin-top:0}
+.doc h2{font-size:22px;margin:36px 0 10px}
+.doc p,.doc li{font-size:16px;line-height:1.65}
+.doc ul{padding-left:22px}.doc li{margin:6px 0}
+.doc code{font-family:'JetBrains Mono',monospace;font-size:14px;background:var(--wash);padding:1px 5px;border-radius:4px}
+.doc .table{overflow-x:auto;margin:14px 0}
+.doc table{border-collapse:collapse;width:100%;font-size:15px;background:#fff;border:1px solid var(--rule);border-radius:10px}
+.doc th,.doc td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
+.doc th{font-family:'Space Grotesk',sans-serif}
+.doc .back{display:inline-block;margin-top:40px;font-weight:600}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a href="https://toknshield.com" aria-label="ToknShield home"><img src="assets/wordmark.svg" alt="ToknShield"></a>
+  <nav><a href="./#how">How it works</a><a href="./#privacy">Privacy</a><a href="./#download">Download</a></nav>
+</div></header>
+
+<main class="doc">
+<h1>ToknShield Security and Data Handling</h1>
+<p>Last reviewed: 20 November 2026 · Version 1.0 (beta)</p>
+<p>Provided by <strong>Portfolioapp Pty Ltd</strong> (ACN 688 794 247, ABN 74 688 794 247). Security contact: <a href="mailto:tom@capinora.com">tom@capinora.com</a>.</p>
+<h2>Our approach</h2>
+<p>ToknShield is a local-first privacy layer for ChatGPT. Before your message or file is sent, it replaces sensitive values with placeholders on your device. Where restoring is supported, it puts the real values back on your Mac.</p>
+<h2>Data boundary</h2>
+<p>The ToknShield extension and app make no network connections to Portfolioapp. We run no servers that receive your messages, documents or detected values.</p>
+<p>That doesn't mean nothing leaves your Mac. The protected messages and files you choose to send go to ChatGPT, and OpenAI handles them under its own terms.</p>
+<p>When you attach a supported file through ToknShield, the original stays on your Mac and ChatGPT receives only the protected copy.</p>
+<h2>What's supported in this beta</h2>
+<p><strong>Supported:</strong></p>
+<ul><li>typed messages in ChatGPT</li><li>Word (.docx) files</li><li>PDFs, including many scanned ones. Low-quality, rotated or signed scanned pages may be refused.</li></ul>
+<p><strong>Blocked while protection is on:</strong></p>
+<ul><li>connected apps such as Google Drive</li><li>web search and @mentions</li><li>editing a message you've already sent</li><li>files dragged, dropped, pasted or picked through ChatGPT's own menu</li></ul>
+<p>Use the ToknShield panel to attach files instead.</p>
+<p><strong>Not protected:</strong> files picked from Google Drive or ChatGPT's Library are fetched by ChatGPT itself. For this beta, use made-up or non-sensitive files, and don't select private files from Drive or ChatGPT Library.</p>
+<h2>Controls</h2>
+<p><strong>Fails closed.</strong> If ToknShield can't confirm something is protected, it blocks the send. It never falls back to the original.</p>
+<p><strong>Least privilege.</strong> The extension runs only on chatgpt.com. It asks Chrome for just these permissions:</p>
+<ul><li>local storage</li><li>the active tab</li><li>messaging with the ToknShield app on your Mac</li></ul>
+<p><strong>Signed software.</strong> The Mac app is signed with Portfolioapp's Apple Developer ID, and its installer is notarised by Apple. The app accepts connections only from the official ToknShield extension.</p>
+<p><strong>Local storage.</strong> Restoration data is kept on your Mac:</p>
+<ul><li>in the macOS Keychain, on this device only and readable while your Mac is unlocked</li><li>in the app's local storage</li></ul>
+<p><strong>No telemetry.</strong> ToknShield sends no analytics, crash reports or diagnostics to us.</p>
+<h2>Your part</h2>
+<ul><li>Keep the extension and the Mac app up to date.</li><li>Check that protection is on before you send.</li><li>Review protected previews, including every page of a PDF.</li><li>Don't try to bypass blocks.</li><li>Follow your organisation's rules.</li><li>Use ChatGPT's own privacy settings.</li></ul>
+<p>ToknShield reduces some disclosure risks. It can't remove them all.</p>
+<h2>Reporting a vulnerability</h2>
+<p>Please email <a href="mailto:tom@capinora.com">tom@capinora.com</a> with:</p>
+<ul><li>the affected versions</li><li>clear steps to reproduce</li><li>the impact you expect</li></ul>
+<p>Use synthetic test data only, and don't send real secrets or personal documents.</p>
+<ul><li><strong>Acknowledgement:</strong> within 5 business days.</li><li><strong>Coordinated disclosure:</strong> please give us up to 90 days to release a fix before publishing details. We'll keep you updated and agree a disclosure date with you.</li><li><strong>Good faith:</strong> if you follow this policy, avoid accessing other people's data, and don't disrupt services, we won't pursue action against you for your research.</li></ul>
+<p>See also the <a href="acceptable-use.html">Acceptable Use and Responsible Disclosure Policy</a>.</p>
+<a class="back" href="./">← Back to the ToknShield beta</a>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 Portfolioapp Pty Ltd · ABN 74 688 794 247</span>
+  <nav class="legal" aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="security.html">Security</a><a href="mailto:tom@capinora.com">Contact</a><a href="https://toknshield.com">toknshield.com</a></nav>
+</div></footer>
+</body>
+</html>
