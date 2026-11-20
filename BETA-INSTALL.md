@@ -1,94 +1,106 @@
-# ToknShield supervised beta: install, rollback and recovery
+# Installing the ToknShield beta
 
-Native app 0.23.22 (build 40) with Chrome extension 0.29.14.49. For supervised testers on macOS with Google Chrome,
-using synthetic documents unless the supervisor says otherwise.
+ToknShield beta 0.23.22: the Mac app plus the Chrome extension (version 0.29.14.49). Setup takes about five minutes.
 
-## What it protects
+You'll need a Mac with Google Chrome, an administrator password for the Mac, and ChatGPT set to English.
+While you're trying the beta, please use made-up or non-sensitive details.
 
-| Workflow | Status |
+Questions or problems: **[tom@capinora.com](mailto:tom@capinora.com)**
+
+## 1. Download
+
+From the [release page](https://github.com/Tcapinora/ToknShield-beta/releases/tag/v0.23.22-beta), download both files:
+
+- `ToknShield-0.23.22-beta.pkg`: the Mac app
+- `ToknShield-Chrome-Extension-0.29.14.49.zip`: the Chrome extension
+
+Double-click the zip to unzip it. Move the **ToknShield Chrome Extension** folder somewhere permanent, such as your Documents folder.
+Chrome runs the extension from this folder, so if you delete or move it later, the extension stops working.
+
+## 2. Install the Mac app
+
+1. Quit Chrome completely: press ⌘Q while Chrome is in front. Closing the window isn't enough.
+2. Open `ToknShield-0.23.22-beta.pkg` and follow the installer. macOS asks for your administrator password.
+   The app is signed by Portfolioapp Pty Ltd and checked by Apple, so it opens without a security warning.
+3. Open **ToknShield** from your Applications folder. A shield icon appears in the menu bar at the top of your screen.
+
+## 3. Add the Chrome extension
+
+1. Open Chrome and go to `chrome://extensions`. Type it into the address bar.
+2. Turn on **Developer mode** (top right).
+3. Click **Load unpacked**, then choose the **ToknShield Chrome Extension** folder from step 1.
+4. ToknShield appears in the list. Click the puzzle-piece icon in Chrome's toolbar, then the pin, so the ToknShield icon stays visible.
+5. Click the ToknShield icon and choose **Automatic**.
+
+**About the Developer mode message.** Chrome sometimes shows a notice about extensions in developer mode. That's
+expected during the beta, because ToknShield isn't on the Chrome Web Store yet. It's safe to dismiss.
+
+## 4. Check it works
+
+Open ChatGPT and start a **Temporary Chat** (top right). Then:
+
+1. Send `What is the capital of France?` It goes through exactly as typed.
+2. Send `Remind test@example.com about the invoice`. ChatGPT receives a placeholder such as `[[TS2_…]]` instead of the email address.
+3. Type `@drive` and press Enter. ToknShield blocks it, because connected apps could share files ToknShield can't see.
+4. Click the ToknShield icon, choose **Off**, and send the email message again. This time it goes through unchanged.
+   Switch back to **Automatic** when you're done.
+
+## What ToknShield protects
+
+| What you do in ChatGPT | With protection on |
 |---|---|
-| Typed text in ChatGPT | Protected: private details are replaced before sending |
-| Local Word (.docx) files | Protected in place; files with pictures, embedded files or macros are refused |
-| Local PDFs, digital or scanned | Protected copy with private areas blacked out; you review each page first |
-| Google Docs downloaded as DOCX or PDF | Protected as local files |
-| Google Drive, other connected apps, web search, @mentions | Blocked while protection is on |
-| Editing a message you already sent | Blocked while protection is on |
-| Files dropped or pasted anywhere on the page, or picked from ChatGPT's own menu | Stopped before upload while protection is on; choose the file in the ToknShield panel instead |
-| Files from ChatGPT's Library | Blocked at Send while protection is on (they are already stored with ChatGPT) |
-| What ChatGPT fetches by itself from a connected account | Not visible to ToknShield, so not protected |
+| Type a message | Names, emails, phone numbers, addresses and account details are replaced before sending |
+| Attach a Word document (.docx) | A protected copy is sent. Documents containing pictures, embedded files or macros are refused, to be safe. |
+| Attach a PDF (typed or scanned) | You see a protected copy with private details blacked out, check each page, then attach it |
+| Google Drive, other connected apps, web search, @mentions | Blocked, because ToknShield can't check what they share |
+| Drag, drop or paste a file, or use ChatGPT's own attach menu | Stopped. Attach files through the ToknShield panel instead. |
+| Edit a message you've already sent | Blocked |
 
-If ToknShield cannot confirm protection, it blocks the message. It never sends the original instead.
+If ToknShield can't confirm something is protected, it blocks the send. It never sends the original instead.
 
-## Download and check
+**Seeing the original details again.** When ChatGPT replies, open ToknShield's panel and choose **Settings › Restore on this Mac**.
+The original details are shown in ToknShield's own window, on your Mac only.
 
-Download both files from the release page:
-
-- `ToknShield-0.23.22-beta.pkg`
-- `ToknShield-Chrome-Extension-0.29.14.49.zip`
-
-Optionally, check them in Terminal against `SHA256SUMS` on the release page:
-
-```
-shasum -a 256 ~/Downloads/ToknShield-0.23.22-beta.pkg ~/Downloads/ToknShield-Chrome-Extension-0.29.14.49.zip
-```
-
-Unzip the extension, and move the `ToknShield Chrome Extension` folder somewhere permanent, for example your
-Documents folder. Chrome loads the extension from that folder, so deleting or moving it later removes the extension.
-
-## Install
-
-1. Quit Chrome completely (⌘Q).
-2. Open `ToknShield-0.23.22-beta.pkg` and follow the installer. It needs an administrator password. It adds
-   `/Applications/ToknShield.app` and four small files in `/Library/Google/Chrome/NativeMessagingHosts`
-   (`io.toaknshield.status`, `.handoff`, `.authority`, `.visual`).
-3. Open ToknShield from Applications. A shield appears in the menu bar.
-4. Open Chrome, go to `chrome://extensions`, turn on **Developer mode**, click **Load unpacked** and choose the
-   `ToknShield Chrome Extension` folder you unzipped. Check it says version 0.29.14.49 and ID
-   `ecmhofklgmppejaapkngpofnaodlbifh`. Remove any other ToknShield extension so only one is enabled.
-5. Click the ToknShield toolbar icon and choose **Automatic**.
-
-## Check it works
-
-In a ChatGPT Temporary Chat:
-
-1. Send `What is the capital of France?` It should send unchanged.
-2. Send `Remind test@example.com about the invoice`. ChatGPT should receive a `[[TS2_…]]` reference, not the address.
-3. Type `@drive` and press Enter. ToknShield should block it.
-4. Set the toolbar icon to **Off** and send the same address. It should go through unchanged.
-
-## When protection stops
+## If something isn't working
 
 | What you see | What to do |
 |---|---|
-| "Protection paused · Chrome has updated" | Quit Chrome completely with ⌘Q (closing the window is not enough) and reopen it. |
-| "Reconnecting to local protection…" for more than a minute | Make sure ToknShield is running in the menu bar. If Chrome updated recently, quit and reopen Chrome. |
-| A PDF says "Ready for your review" | Use **Next page** to view every page (Confirm does nothing until you have), press **Confirm protected copy**, then **Attach**. |
-| A message is blocked | The panel says why. Remove what it names (an @mention, app chip, tool, or unprotected file) and send again. |
+| "Protection paused · Chrome has updated" | Quit Chrome completely (⌘Q) and reopen it. |
+| "Reconnecting to local protection…" for more than a minute | Check the ToknShield shield is in your menu bar. If not, open ToknShield from Applications. Then quit and reopen Chrome. |
+| A PDF says "Ready for your review" | Use **Next page** to look at every page (the Confirm button only works after that), press **Confirm protected copy**, then **Attach**. |
+| An attached file disappears from the panel | ChatGPT probably refused the upload, often because a free plan's daily file limit was reached. Nothing was sent. Check ChatGPT's own message above the message box. |
+| A message is blocked | The panel says why. Remove what it mentions (for example an @mention or an app) and send again. |
+| You used an earlier test version of ToknShield | Email us before installing, so we can help you remove it first. |
 
-## Roll back or remove
+## Good to know
 
-1. Quit Chrome and quit ToknShield from the menu bar.
-2. At `chrome://extensions`, remove ToknShield, or load the previous extension folder you were given.
-3. Remove the app and its Chrome registrations (administrator password needed):
+- **ChatGPT in English.** Some checks rely on ChatGPT's English button labels.
+- **Web search** can't be used while protection is on. Switch to Off for that message.
+- **Google Drive and ChatGPT's file library:** if you pick a file from these, ChatGPT fetches it on its own servers.
+  ToknShield stops the message being sent, but it can't stop that fetch, so avoid picking private files from there.
+- **In a small Chrome window,** scroll inside the ToknShield panel to find the PDF review and the Attach button.
+
+## Removing ToknShield
+
+1. Quit Chrome, then quit ToknShield from the shield in the menu bar.
+2. In Chrome, go to `chrome://extensions` and click **Remove** on ToknShield.
+3. Open Terminal (Applications › Utilities) and paste these three lines. It asks for your Mac password.
    ```
    sudo rm -rf /Applications/ToknShield.app
    sudo rm -f /Library/Google/Chrome/NativeMessagingHosts/io.toaknshield.{status,handoff,authority,visual}.json
    sudo pkgutil --forget io.toaknshield.privatebeta
    ```
-4. To go back to an earlier beta, do step 3 first, then install the earlier signed package. Installing an older
-   package over a newer one reports success but keeps the newer app, so removing it first is required.
+   (`io.toaknshield` is ToknShield's internal name on your Mac. The spelling is intentional.)
 
-Removing ToknShield does not change ChatGPT or your documents. Protected copies you downloaded stay where you saved them.
+Removing ToknShield doesn't change ChatGPT or your documents. Protected copies you saved stay where you saved them.
 
-## Known limits
+**Going back to an earlier beta.** Remove this version using the steps above, then install the earlier package.
+If you install an older version over a newer one, macOS reports success but keeps the newer version.
 
-- The installer is Developer ID signed and notarized by Apple, with the ticket stapled, so macOS opens it without a warning.
-- Connected-app and Library detection relies on ChatGPT's English interface labels. Use ChatGPT in English.
-- If ChatGPT refuses an upload (for example when your plan's file-attachment limit is reached), ToknShield's panel clears
-  the protected file without saying why. Nothing is sent. Check ChatGPT's own message above the message box.
-- A file picked from Google Drive or the Library is fetched by ChatGPT on its own servers when you pick it.
-  ToknShield stops the message from being sent, but cannot stop that fetch.
-- In a short Chrome window, the PDF review and the Attach button are inside the panel's scroll area.
-- Web search cannot be used while protection is on; switch to Off for that message.
-- Per-user Chrome registrations in `~/Library/Application Support/Google/Chrome/NativeMessagingHosts` take priority
-  over the ones this installer adds. A tester who used a development build should remove those first.
+## Checking the downloads (optional)
+
+To confirm the files are exactly what we published, run this in Terminal and compare the results with `SHA256SUMS` on the release page:
+
+```
+shasum -a 256 ~/Downloads/ToknShield-0.23.22-beta.pkg ~/Downloads/ToknShield-Chrome-Extension-0.29.14.49.zip
+```
