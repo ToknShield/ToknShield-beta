@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Tcapinora/ToknShield-beta/releases/tag/v0.23.22-beta"><b>Download the beta</b></a>
+  <a href="https://github.com/ToknShield/ToknShield-beta/releases/tag/v0.23.22-beta"><b>Download the beta</b></a>
   &nbsp;·&nbsp;
   <a href="BETA-INSTALL.md">Install guide</a>
   &nbsp;·&nbsp;
@@ -43,7 +43,7 @@ ToknShield lets you use ChatGPT without handing over private details. It runs on
 
 ## Get started
 
-1. **[Download the beta](https://github.com/Tcapinora/ToknShield-beta/releases/tag/v0.23.22-beta)**: the Mac app and the Chrome extension.
+1. **[Download the beta](https://github.com/ToknShield/ToknShield-beta/releases/tag/v0.23.22-beta)**: the Mac app and the Chrome extension.
 2. Follow the **[install guide](BETA-INSTALL.md)**. It takes about five minutes.
 3. Open ChatGPT in Chrome and send a message. ToknShield takes it from there.
 

@@ -9,7 +9,7 @@ Questions or problems: **[tom@capinora.com](mailto:tom@capinora.com)**
 
 ## 1. Download
 
-From the [release page](https://github.com/Tcapinora/ToknShield-beta/releases/tag/v0.23.22-beta), download both files:
+From the [release page](https://github.com/ToknShield/ToknShield-beta/releases/tag/v0.23.22-beta), download both files:
 
 - `ToknShield-0.23.22-beta.pkg`: the Mac app
 - `ToknShield-Chrome-Extension-0.29.14.49.zip`: the Chrome extension
