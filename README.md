@@ -7,6 +7,8 @@
   &nbsp;·&nbsp;
   <a href="BETA-INSTALL.md">Install guide</a>
   &nbsp;·&nbsp;
+  <a href="https://beta.toknshield.com">Website</a>
+  &nbsp;·&nbsp;
   <a href="mailto:tom@capinora.com">Contact</a>
 </p>
 
