@@ -5,7 +5,7 @@ Downloads for invited ToknShield beta testers. This repository holds release fil
 ToknShield runs on your Mac and protects private details in ChatGPT (in Google Chrome) before they are sent.
 Typed text, Word files and PDFs are protected locally, and originals can be restored only on your Mac.
 
-**Get the beta:** open [Releases](../../releases/latest), download the installer and the Chrome extension, and follow
+**Get the beta:** open [the 0.23.22 beta release](https://github.com/Tcapinora/ToknShield-beta/releases/tag/v0.23.22-beta), download the installer and the Chrome extension, and follow
 [BETA-INSTALL.md](BETA-INSTALL.md).
 
 - macOS with Google Chrome, ChatGPT in English
